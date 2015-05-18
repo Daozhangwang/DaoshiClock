@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.daoshiclock"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:name="com.example.daoshiclock.IsLogin"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.activity.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="com.example.activity.AlarmalertActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.activity.RecordActivity"
+            android:label="@string/title_activity_record" >
+        </activity>
+
+        <receiver
+            android:name="com.example.daoshiclock.AlarmReceiver"
+            android:process=":remote" >
+        </receiver>
+        <receiver
+            android:name="com.example.daoshiclock.AlarmReceiver2"
+            android:process=":remote" >
+        </receiver>
+        <receiver
+            android:name="com.example.daoshiclock.AlarmReceiver3"
+            android:process=":remote" >
+        </receiver>
+
+        <service android:name="com.example.daoshiclock.PlayMusicService" >
+            <intent-filter>
+                <action android:name=".PlayMusicService" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.example.activity.LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.activity.EnrollActivity"
+            android:label="@string/title_activity_enroll" >
+        </activity>
+        <activity
+            android:name="com.example.activity.InputActivity"
+            android:label="@string/title_activity_input" >
+        </activity>
+        <activity
+            android:name="com.example.activity.UploadlistActivity"
+            android:label="@string/title_activity_uploadlist" >
+        </activity>
+        <activity
+            android:name="com.example.activity.UserActivity"
+            android:label="@string/title_activity_user" >
+        </activity>
+        <activity
+            android:name="com.example.activity.FanlistActivity"
+            android:label="@string/title_activity_fanlist" >
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+</manifest>

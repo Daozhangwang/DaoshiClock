@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/clock_tv"
+				        android:layout_width="fill_parent"
+				        android:layout_weight="1"
+				        android:text="@string/title_clock"
+				        android:gravity="center"
+				        android:textSize="18sp" 
+				        android:layout_height="60dp"/>
+                   
+			      	<TextView
+			      	    android:id="@+id/musicbase_tv"
+				        android:layout_width="fill_parent"
+				        android:layout_height="60dp"
+				        android:layout_weight="1"
+				        android:gravity="center"
+				        android:textSize="18sp" 
+				        android:text="@string/musicbase"/>
+			      
+			    	<TextView
+			    	    android:id="@+id/online_tv"
+				        android:layout_width="fill_parent"
+				        android:layout_height="60dp"
+				        android:layout_weight="1"
+				        android:gravity="center"
+				        android:textSize="18sp" 
+				        android:text="@string/online"/>
+			    
+			    	<TextView
+			    	    android:id="@+id/mine_tv"
+				        android:layout_width="fill_parent"
+				        android:layout_height="60dp"
+				        android:layout_weight="1"
+				        android:gravity="center"
+				        android:textSize="18sp" 
+				        android:text="@string/mine"/>
+    
+
+</LinearLayout>

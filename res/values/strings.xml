@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DaoshiClock</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_record">RecordActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_enroll">EnrollActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="girl">女</string>
+    <string name="boy">男</string>
+    <string name="title_clock">闹钟</string>
+    <string name="musicbase">本地乐库</string>
+    <string name="online">在线乐库</string>
+    <string name="mine">个人中心</string>
+    <string name="open">已开启</string>
+    <string name="close">未开启</string>
+    <string name="click_record">按住录音</string>
+    <string name="begin_time">00:00</string>
+    <string name="not_set">未设置</string>
+    
+    <string name="playtest">试听</string>
+    <string name="jishi">计时：</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
+    <string name="record">录音</string>
+    <string name="upload">上传</string>
+    <string name="play">播放</string>
+    <string name="input_username">请输入用户名</string>
+    <string name="input_password">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="enroll">没有账号？点击注册</string>
+    <string name="enroll2">注册</string>
+    <string name="input_age">年龄</string>
+    <string name="username">用户名:</string>
+    <string name="liker">喜欢的人:</string>
+    <string name="introduce">介绍:</string>
+    <string name="numberofupload">上传数</string>
+    <string name="follower">听众</string>
+    <string name="uploadlist">上传列表</string>
+    <string name="attention">关注的人</string>
+    <string name="zero">0</string>
+    <string name="quit">取消登录</string>
+    <string name="situation_already">已关注</string>
+    <string name="situation_both">互相关注 </string>
+    <string name="situation_no">未关注</string>
+    <string name="input_introduce">输入个人介绍</string>
+    <string name="user_message">详细信息</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_input">InputActivity</string>
+    <string name="title_activity_uploadlist">UploadlistActivity</string>
+    <string name="title_activity_fanlist">FanlistActivity</string>
+
+</resources>
