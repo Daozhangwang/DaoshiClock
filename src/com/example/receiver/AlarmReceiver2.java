@@ -21,7 +21,7 @@ public class AlarmReceiver2 extends BroadcastReceiver {
 	public void onReceive(Context arg0, Intent arg1) {
 		Calendar c = Calendar.getInstance();
 		today = c.get(Calendar.DAY_OF_WEEK) - 1;
-		Log.i("naozhong2222",  "start");
+		Log.i("receiver2",  "start");
 		DatabaseHelper database = new DatabaseHelper(arg0);
 		SQLiteDatabase db = database.getWritableDatabase();
 		cu = db.query("weekday2", null, null, null, null, null, null);

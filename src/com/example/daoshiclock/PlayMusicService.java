@@ -1,11 +1,15 @@
 package com.example.daoshiclock;
 
 import java.io.File;
+
+import com.example.shared.myshared;
+
 import android.app.Service;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
+import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -16,6 +20,7 @@ public class PlayMusicService extends Service {
 	private File file;
 	public Cursor csong;
 	public SQLiteDatabase showdb;
+	String path;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -25,36 +30,20 @@ public class PlayMusicService extends Service {
 
 	@Override
 	public void onCreate() {
+		super.onCreate();
 		myplayer = new MediaPlayer();
 		String song = getsong();
-		Log.i("nowsong", song);
+		Log.i("get ring ", song);
 		// String path="/sdcard/Clock/"+song;
-		String path = "/sdcard/Clock/s.mp3";
-		try {
-			myplayer.reset();
-			myplayer.setDataSource(path);
-			myplayer.prepareAsync();
+		path = Environment.getExternalStorageDirectory().getAbsolutePath()
+				+ "/Clock/" + "s.mp3";
 
-			Log.i("play", "cool");
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		super.onCreate();
 	}
 
 	private String getsong() {
 
-		DatabaseHelper database = new DatabaseHelper(this);
-		showdb = database.getWritableDatabase();
-		csong = showdb.query("song", null, null, null, null, null, null);
-		csong.moveToFirst();
-		String showSong = csong.getString(csong.getColumnIndex("song_name"));
-		return showSong;
+		myshared shared = new myshared(this);
+		return shared.getring();
 	}
 
 	@Override
@@ -68,8 +57,21 @@ public class PlayMusicService extends Service {
 	@Override
 	public void onStart(Intent intent, int startId) {
 		// TODO Auto-generated method stub
-		myplayer.start();
+
 		super.onStart(intent, startId);
+		try {
+			myplayer.reset();
+			myplayer.setDataSource(path);
+			myplayer.prepare();
+			myplayer.start();
+			Log.i("ringprepare", "cool");
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

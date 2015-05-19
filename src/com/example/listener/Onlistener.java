@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
@@ -22,17 +23,16 @@ public class Onlistener implements ToggleButton.OnCheckedChangeListener {
 	public DatabaseHelper database;
 	public SQLiteDatabase db;
 	public Calendar c;
-	public Context getit;
+	public Context context;
 	public Intent intent;
 	public int i;
 	public Cursor ctime;
 	public int hour;
 	public int minute;
 
-	public Onlistener(Context getit, int i, DatabaseHelper database) {
+	public Onlistener(Context context, int i, DatabaseHelper database) {
 		this.database = database;
-		
-		this.getit = getit;
+		this.context = context;
 		this.i = i;
 		db = database.getWritableDatabase();
 
@@ -41,63 +41,62 @@ public class Onlistener implements ToggleButton.OnCheckedChangeListener {
 	@Override
 	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
 		if (arg1) {
-			
+
 			c = Calendar.getInstance();
 			c.setTimeInMillis(System.currentTimeMillis());
-			
-			
-			
+
 			ctime = db.query("time", null, null, null, null, null, null);
 			ctime.moveToFirst();
-			
-			
+
 			ContentValues cv = new ContentValues();// 实例化ContentValues
 			cv.put("time_on", true);// 添加要更改的字段及内容
 			String whereClause = "time_number=?";
 			String[] whereday = new String[] { String.valueOf(i) };
 			db.update("time", cv, whereClause, whereday);
 			if (i == 3) {
-				intent = new Intent(getit, AlarmReceiver3.class);
+				intent = new Intent(context, AlarmReceiver3.class);
 				ctime.moveToLast();
-			
+
 			} else if (i == 2) {
-				intent = new Intent(getit, AlarmReceiver2.class);
+				intent = new Intent(context, AlarmReceiver2.class);
 				ctime.moveToNext();
-			
+
 			} else if (i == 1) {
-				intent = new Intent(getit, AlarmReceiver.class);
-			
+				intent = new Intent(context, AlarmReceiver.class);
 
 			}
+			Log.i("On" + String.valueOf(i), "want start receiver");
 			hour = ctime.getInt(ctime.getColumnIndex("time_hour"));
 			minute = ctime.getInt(ctime.getColumnIndex("time_min"));
 			c.set(Calendar.HOUR_OF_DAY, hour);
 			c.set(Calendar.MINUTE, minute);
 			c.set(Calendar.SECOND, 0);
 			c.set(Calendar.MILLISECOND, 0);
-			
-			PendingIntent sender = PendingIntent.getBroadcast(getit, 1, intent,PendingIntent.FLAG_UPDATE_CURRENT);
-			
-			am = (AlarmManager) getit.getSystemService(Context.ALARM_SERVICE);
-			
+
+			PendingIntent sender = PendingIntent.getBroadcast(context, 1,
+					intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+			am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
 			am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), sender);
-			
-			//am.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(),24 * 60 * 60 * 1000, sender);
+/*
+			am.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(),
+					24 * 60 * 60 * 1000, sender);*/
 
 		} else {
 
 			if (i == 3) {
-				intent = new Intent(getit, AlarmReceiver3.class);
+				intent = new Intent(context, AlarmReceiver3.class);
 			} else if (i == 2) {
-				intent = new Intent(getit, AlarmReceiver2.class);
+				intent = new Intent(context, AlarmReceiver2.class);
 			} else if (i == 1) {
-				intent = new Intent(getit, AlarmReceiver.class);
+				intent = new Intent(context, AlarmReceiver.class);
 
 			}
-			PendingIntent sender = PendingIntent.getBroadcast(getit, 0, intent,
-					0);
+			PendingIntent sender = PendingIntent.getBroadcast(context, 0,
+					intent, 0);
 
-			AlarmManager am = (AlarmManager) getit
+			AlarmManager am = (AlarmManager) context
 					.getSystemService(Context.ALARM_SERVICE);
 			am.cancel(sender);
 			ContentValues cv = new ContentValues();// 实例化ContentValues

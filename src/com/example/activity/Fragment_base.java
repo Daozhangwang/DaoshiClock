@@ -7,9 +7,10 @@ import java.util.Map;
 import com.example.daoshiclock.DatabaseHelper;
 import com.example.daoshiclock.R;
 import com.example.daoshiclock.setmusicname;
+import com.example.shared.myshared;
+
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.database.sqlite.SQLiteDatabase;
@@ -70,15 +71,11 @@ public class Fragment_base extends Fragment {
 						@SuppressWarnings("unchecked")
 						Map<String, String> map = (Map<String, String>) setmusicname.musiclist_Adapter
 								.getItem(arg2);
-						String musicname = map.get("name");
+						String ring = map.get("name");
+						Log.i("LongClick...setring", ring);
+						myshared shared = new myshared(getActivity());
+						shared.setring(ring);
 
-						Log.i("LongClick", musicname);
-						ContentValues cvsong = new ContentValues();// ÊµÀý»¯ContentValues
-						cvsong.put("song_name", musicname);
-
-						String whereClause = "number=?";
-						String[] whereday = new String[] { "1" };
-						db.update("song", cvsong, whereClause, whereday);
 					}
 				});
 

@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class daylistener implements View.OnClickListener {
+public class Clockdaylistener implements View.OnClickListener {
 
 	public boolean[] weekdo = { false, false, false, false, false, false, false };
 	public String[] weekday = { "周日", "周一", "周二", "周三", "周四", "周五", "周六" };
@@ -24,7 +24,7 @@ public class daylistener implements View.OnClickListener {
 	public DatabaseHelper database;
 	public SQLiteDatabase db;
 
-	public daylistener(TextView day, int i, DatabaseHelper database) {
+	public Clockdaylistener(TextView day, int i, DatabaseHelper database) {
 		this.day = day;
 		this.i = i;
 		this.database = database;

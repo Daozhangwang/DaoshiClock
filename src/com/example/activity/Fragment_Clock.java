@@ -5,9 +5,9 @@ import java.util.Calendar;
 import com.example.daoshiclock.DatabaseHelper;
 import com.example.daoshiclock.R;
 import com.example.listener.Onlistener;
-import com.example.listener.daylistener;
+import com.example.listener.Clockdaylistener;
 import com.example.listener.timelistener;
-import com.example.daoshiclock.showday;
+import com.example.daoshiclock.showClock;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -61,7 +61,7 @@ public class Fragment_Clock extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		initdatabase();
 
-		showday showthis = new showday(new DatabaseHelper(getActivity()));
+		showClock showthis = new showClock(new DatabaseHelper(getActivity()));
 		showthis.dayshow(day1, 1);
 		showthis.dayshow(day2, 2);
 		showthis.dayshow(day3, 3);
@@ -71,7 +71,7 @@ public class Fragment_Clock extends Fragment {
 		showthis.Onshow(On1, 1);
 		showthis.Onshow(On2, 2);
 		showthis.Onshow(On3, 3);
-		showthis.songshow(showsong);
+		showthis.songshow(showsong, getActivity());
 		inittime();
 		initday();
 		initOn();
@@ -82,11 +82,9 @@ public class Fragment_Clock extends Fragment {
 		database = new DatabaseHelper(getActivity());
 		SQLiteDatabase db1 = null;
 		SQLiteDatabase db2 = null;
-		SQLiteDatabase db3 = null;
 		db1 = database.getWritableDatabase();
 		db2 = database.getWritableDatabase();
-		db3 = database.getWritableDatabase();
-		Cursor cusong = db3.query("song", null, null, null, null, null, null);
+
 		Cursor cuweek1 = db1.query("weekday1", null, null, null, null, null,
 				null);
 		Cursor cuweek2 = db1.query("weekday2", null, null, null, null, null,
@@ -94,14 +92,11 @@ public class Fragment_Clock extends Fragment {
 		Cursor cuweek3 = db1.query("weekday3", null, null, null, null, null,
 				null);
 		cu2 = db2.query("time", null, null, null, null, null, null);
-		Log.i("weekday_long", String.valueOf(cuweek1.getCount()));
-		Log.i("time_long", String.valueOf(cu2.getCount()));
-		if (cusong.getCount() == 0) {
-			ContentValues cvsong = new ContentValues();
-			cvsong.put("song_name", "it's my life");
-			cvsong.put("number", 1);
-			db3.insert("song", null, cvsong);
-		}
+		/*
+		 * Log.i("weekday_long", String.valueOf(cuweek1.getCount()));
+		 * Log.i("time_long", String.valueOf(cu2.getCount()));
+		 */
+
 		if (cu2.getCount() == 0) {
 			ContentValues cv1 = new ContentValues();
 			cv1.put("time_hour", 0);
@@ -190,35 +185,16 @@ public class Fragment_Clock extends Fragment {
 		int today = c2.get(Calendar.DAY_OF_WEEK) - 1;
 		Log.i("today", String.valueOf(today));
 
-		daylistener day1listener = new daylistener(day1, 1, new DatabaseHelper(
-				getActivity()));
-		daylistener day2listener = new daylistener(day2, 2, new DatabaseHelper(
-				getActivity()));
-		daylistener day3listener = new daylistener(day3, 3, new DatabaseHelper(
-				getActivity()));
+		Clockdaylistener day1listener = new Clockdaylistener(day1, 1,
+				new DatabaseHelper(getActivity()));
+		Clockdaylistener day2listener = new Clockdaylistener(day2, 2,
+				new DatabaseHelper(getActivity()));
+		Clockdaylistener day3listener = new Clockdaylistener(day3, 3,
+				new DatabaseHelper(getActivity()));
 
 		day1.setOnClickListener(day1listener);
 		day2.setOnClickListener(day2listener);
 		day3.setOnClickListener(day3listener);
-
-	}
-
-	public void onResume() {
-		super.onResume();
-		Log.i("Clock", "Resume");
-		Cursor csong;
-		DatabaseHelper database = new DatabaseHelper(getActivity());
-		SQLiteDatabase showdb = database.getWritableDatabase();
-		csong = showdb.query("song", null, null, null, null, null, null);
-		csong.moveToFirst();
-		String bitch = csong.getString(csong.getColumnIndex("song_name"));
-
-		CharSequence fuck = showsong.getText();
-		String fucker = (String) fuck;
-		if (fucker != bitch) {
-			showsong.setText(bitch);
-
-		}
 
 	}
 

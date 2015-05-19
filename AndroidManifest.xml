@@ -28,15 +28,15 @@
         </activity>
 
         <receiver
-            android:name="com.example.daoshiclock.AlarmReceiver"
+            android:name="com.example.receiver.AlarmReceiver"
             android:process=":remote" >
         </receiver>
         <receiver
-            android:name="com.example.daoshiclock.AlarmReceiver2"
+            android:name="com.example.receiver.AlarmReceiver2"
             android:process=":remote" >
         </receiver>
         <receiver
-            android:name="com.example.daoshiclock.AlarmReceiver3"
+            android:name="com.example.receiver.AlarmReceiver3"
             android:process=":remote" >
         </receiver>
 

@@ -1,12 +1,15 @@
 package com.example.daoshiclock;
 
+import com.example.shared.myshared;
+
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class showday {
+public class showClock {
 	public TextView tv;
 	public Cursor ctime;
 	public Cursor cday;
@@ -19,7 +22,7 @@ public class showday {
 	public int numberofdo = 0;
 	public String[] weekday = { "周末", "周一", "周二", "周三", "周四", "周五", "周六" };
 
-	public showday(DatabaseHelper database) {
+	public showClock(DatabaseHelper database) {
 
 		this.database = database;
 		showdb = null;
@@ -27,11 +30,10 @@ public class showday {
 
 	}
 
-	public void songshow(TextView tv) {
-		csong = showdb.query("song", null, null, null, null, null, null);
-		csong.moveToFirst();
-		String showSong = csong.getString(csong.getColumnIndex("song_name"));
-		tv.setText(showSong);
+	public void songshow(TextView tv, Context context) {
+		myshared shared = new myshared(context);
+		String ring = shared.getring();
+		tv.setText(ring);
 
 	}
 
@@ -126,17 +128,16 @@ public class showday {
 			}
 
 		}
-		Log.i("number"+String.valueOf(i),String.valueOf(numberofdo));
-		int textsize=28 -  3*numberofdo;
-	
+		Log.i("number" + String.valueOf(i), String.valueOf(numberofdo));
+		int textsize = 28 - 3 * numberofdo;
+
 		if (dayshow_s == "") {
 
 			dayshow_s = "未设置";
-		
+
 		} else if (dayshow_s == "周末周一周二周三周四周五周六") {
 
 			dayshow_s = "全周";
-		
 
 		}
 		if (On == 1) {

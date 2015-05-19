@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.example.daoshiclock.DatabaseHelper;
 import com.example.daoshiclock.R;
+import com.example.shared.myshared;
 import com.example.thread.UploadThread;
 import com.example.daoshiclock.setmusicname;
 import com.example.daoshiclock.baseplayer;
@@ -36,7 +37,6 @@ public class musicOnItemClickListener implements OnItemClickListener {
 	public DatabaseHelper database;
 	public SQLiteDatabase db;
 	public Cursor csong;
-	public String songname;
 	public File musicpath;
 	public Context context;
 	public ListView baselist;
@@ -47,6 +47,7 @@ public class musicOnItemClickListener implements OnItemClickListener {
 	public baseplayer player;
 
 	private ProgressDialog upload_progress;
+	public String ring;
 
 	public musicOnItemClickListener(String username, Context context,
 			ListView baselist, List<String> musiclist) {
@@ -56,7 +57,6 @@ public class musicOnItemClickListener implements OnItemClickListener {
 		this.musiclist = musiclist;
 		database = new DatabaseHelper(context);
 		db = database.getWritableDatabase();
-		
 
 	}
 
@@ -72,7 +72,7 @@ public class musicOnItemClickListener implements OnItemClickListener {
 		play = (TextView) arg1.findViewById(R.id.musiclist_play);
 		delete = (TextView) arg1.findViewById(R.id.musiclist_delete);
 		upload = (TextView) arg1.findViewById(R.id.musiclist_upload);
-		player=new baseplayer(context,musicname,1);
+		player = new baseplayer(context, musicname, 1);
 
 		musicpath = new File("/sdcard/Clock/" + musicname);
 
@@ -101,9 +101,8 @@ public class musicOnItemClickListener implements OnItemClickListener {
 			}
 		};
 
-		csong = db.query("song", null, null, null, null, null, null);
-		csong.moveToFirst();
-		songname = csong.getString(csong.getColumnIndex("song_name"));
+		myshared shared = new myshared(context);
+		ring = shared.getring();
 
 		play.setOnClickListener(new OnClickListener() {
 
@@ -146,7 +145,7 @@ public class musicOnItemClickListener implements OnItemClickListener {
 			@Override
 			public void onClick(View v) {
 
-				if (!musicname.equals(songname)) {
+				if (!musicname.equals(ring)) {
 					if (musicpath.delete()) {
 						Toast.makeText(context, "É¾³ý³É¹¦", Toast.LENGTH_LONG)
 								.show();
