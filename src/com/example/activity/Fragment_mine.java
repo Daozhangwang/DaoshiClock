@@ -17,7 +17,6 @@ import com.example.activity.InputActivity;
 import com.example.daoshiclock.IsLogin;
 import com.example.daoshiclock.R;
 import com.example.daoshiclock.showmine;
-import com.example.thread.MineThread;
 
 public class Fragment_mine extends Fragment {
 	public TextView username;
@@ -48,10 +47,7 @@ public class Fragment_mine extends Fragment {
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		updateshared();
-		showmine showmine = new showmine(introduce, songs, attention, follower,
-				getActivity());
-		showmine.show();
+
 		initevent();
 
 	}
@@ -129,22 +125,13 @@ public class Fragment_mine extends Fragment {
 
 	}
 
-	private void updateshared() {
-		islogin = (IsLogin) getActivity().getApplication();
-		name = ((MainActivity) getActivity()).getusername();
-
-		MineThread mine_th = new MineThread(name, getActivity());
-		mine_th.start();
-		username.setText(name);
-
-	}
-
-	public void onResume() {
-		super.onResume();
-		Log.i("mine", "Resume");
-		showmine showmine = new showmine(introduce, songs, attention, follower,
-				getActivity());
+	public void onStart() {
+		super.onStart();
+		Log.i("mine", "onstart");
+		showmine showmine = new showmine(username, introduce, songs, attention,
+				follower, getActivity());
 		showmine.show();
+
 	}
 
 }

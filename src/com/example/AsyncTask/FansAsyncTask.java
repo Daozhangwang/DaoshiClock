@@ -18,7 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.daoshiclock.R;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -142,6 +141,7 @@ public class FansAsyncTask extends
 
 				new int[] { R.id.fanslist_name, R.id.fanslist_type });
 		fanslist.setAdapter(fanslistAdapter);
+		
 
 	}
 

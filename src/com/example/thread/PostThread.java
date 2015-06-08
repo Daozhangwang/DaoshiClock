@@ -84,7 +84,7 @@ public class PostThread extends Thread {
 			e.printStackTrace();
 
 		}
-		
+		httpClient.getConnectionManager().shutdown();
 		Message message = Message.obtain(handler, key);
 		handler.sendMessage(message);
 	}

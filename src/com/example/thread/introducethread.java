@@ -79,7 +79,7 @@ public class introducethread extends Thread {
 			e.printStackTrace();
 
 		}
-		
+		httpClient.getConnectionManager().shutdown();
 		Message message = Message.obtain(handler, key);
 		handler.sendMessage(message);
 		

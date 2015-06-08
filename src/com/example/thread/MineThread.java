@@ -67,13 +67,13 @@ public class MineThread extends Thread {
 
 					JSONObject oj = nameList.getJSONObject(0);
 
-					oj.getString("sex");
 					fans = oj.getString("fans");
 					attention = oj.getString("attention");
 					songs = oj.getString("songs");
 					introduce = oj.getString("introduce");
+					
 					myshared s1 = new myshared(context);
-
+					s1.setusername(username);
 					s1.setintroduce(introduce);
 					s1.setattention(attention);
 					s1.setfans(fans);
@@ -92,6 +92,7 @@ public class MineThread extends Thread {
 			e.printStackTrace();
 
 		}
+		httpClient.getConnectionManager().shutdown();
 
 	}
 

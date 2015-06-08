@@ -6,34 +6,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="110dp"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tv_showtime_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/begin_time"
             android:textSize="32sp" />
 
         <TextView
             android:id="@+id/tv_choseday_1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/not_set"
             android:textSize="28sp" />
 
         <ToggleButton
             android:id="@+id/bt_On_1"
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:background="#ffffff"
             android:button="@drawable/checkbox"
             android:checked="false"
@@ -44,34 +42,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="110dp"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tv_showtime_2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/begin_time"
             android:textSize="32sp" />
 
         <TextView
             android:id="@+id/tv_choseday_2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/not_set"
             android:textSize="28sp" />
 
         <ToggleButton
             android:id="@+id/bt_On_2"
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:background="#ffffff"
             android:button="@drawable/checkbox"
             android:checked="false"
@@ -82,34 +78,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="110dp"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tv_showtime_3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/begin_time"
             android:textSize="32sp" />
 
         <TextView
             android:id="@+id/tv_choseday_3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/not_set"
             android:textSize="28sp" />
 
         <ToggleButton
             android:id="@+id/bt_On_3"
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:background="#ffffff"
             android:button="@drawable/checkbox"
             android:checked="false"
@@ -121,11 +115,19 @@
     <include layout="@layout/greyline" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|bottom"
+        android:text="@string/now_ring"
+        android:textSize="28sp" />
+
+    <TextView
         android:id="@+id/showsong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:textSize="36sp" />
+        android:textSize="28sp" />
 
 </LinearLayout>

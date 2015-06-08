@@ -74,12 +74,12 @@ public class FanlistActivity extends Activity {
 		if (type.equals("fans")) {
 
 			key = 2;
-			fanslist_title.setText("听众");
+			fanslist_title.setText(username+"听众");
 
 		} else {
 
 			key = 1;
-			fanslist_title.setText("关注的人");
+			fanslist_title.setText(username+"关注的人");
 		}
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("name", username);

@@ -113,9 +113,11 @@ public class MySongsAsyncTask extends AsyncTask<String, Integer, String> {
 			for (int i = 0; i < uplist_array.length(); i++) {
 				JSONObject oj = uplist_array.getJSONObject(i);
 				String name = oj.getString("name");
+				//String uploadtime = oj.getString("date");
+				String liker = "被喜欢的次数：" + oj.getString("liker");
 				name = name.substring(0, name.length() - 4);
 				name = name.substring(username.length(), name.length());
-				String liker = "被喜欢的次数：" + oj.getString("liker");
+
 				HashMap<String, Object> map = new HashMap<String, Object>();
 				map.put("name", name);
 				map.put("liker", liker);

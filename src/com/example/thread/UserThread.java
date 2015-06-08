@@ -44,8 +44,6 @@ public class UserThread extends Thread {
 	TextView fans;
 	Handler handler;
 
-	// public UserThread(String username, TextView introduce, TextView songs,
-	// TextView attention, TextView fans) {
 	public UserThread(String username, String myname) {
 		this.username = username;
 		this.myname = myname;
@@ -98,27 +96,6 @@ public class UserThread extends Thread {
 					Log.i("user_json",
 							str_fans + " " + str_attention + " " + str_songs
 									+ " " + str_introduce + String.valueOf(key));
-					/*
-					 * introduce.post(new Runnable() {
-					 * 
-					 * @Override public void run() {
-					 * introduce.setText(str_introduce); }
-					 * 
-					 * }); songs.post(new Runnable() {
-					 * 
-					 * @Override public void run() { songs.setText(str_songs); }
-					 * 
-					 * }); fans.post(new Runnable() {
-					 * 
-					 * @Override public void run() { fans.setText(str_fans); }
-					 * 
-					 * }); attention.post(new Runnable() {
-					 * 
-					 * @Override public void run() {
-					 * attention.setText(str_attention); }
-					 * 
-					 * });
-					 */
 
 				}
 			} catch (Exception e) {
@@ -130,7 +107,7 @@ public class UserThread extends Thread {
 			e.printStackTrace();
 
 		}
-
+		httpClient.getConnectionManager().shutdown();
 		Message msg = new Message();
 		msg.what = 1;
 		Bundle bundle = new Bundle();

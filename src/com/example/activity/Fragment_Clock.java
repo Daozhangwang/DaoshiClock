@@ -4,9 +4,9 @@ import java.util.Calendar;
 
 import com.example.daoshiclock.DatabaseHelper;
 import com.example.daoshiclock.R;
-import com.example.listener.Onlistener;
+import com.example.listener.ClockOnlistener;
 import com.example.listener.Clockdaylistener;
-import com.example.listener.timelistener;
+import com.example.listener.Clocktimelistener;
 import com.example.daoshiclock.showClock;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -153,11 +153,11 @@ public class Fragment_Clock extends Fragment {
 
 	private void initOn() {
 
-		Onlistener Onlistener3 = new Onlistener(getActivity(), 3,
+		ClockOnlistener Onlistener3 = new ClockOnlistener(getActivity(), 3,
 				new DatabaseHelper(getActivity()));
-		Onlistener Onlistener2 = new Onlistener(getActivity(), 2,
+		ClockOnlistener Onlistener2 = new ClockOnlistener(getActivity(), 2,
 				new DatabaseHelper(getActivity()));
-		Onlistener Onlistener1 = new Onlistener(getActivity(), 1,
+		ClockOnlistener Onlistener1 = new ClockOnlistener(getActivity(), 1,
 				new DatabaseHelper(getActivity()));
 		On1.setOnCheckedChangeListener(Onlistener1);
 		On2.setOnCheckedChangeListener(Onlistener2);
@@ -167,11 +167,11 @@ public class Fragment_Clock extends Fragment {
 
 	private void inittime() {
 
-		timelistener time3listener = new timelistener(time3,
+		Clocktimelistener time3listener = new Clocktimelistener(time3,
 				new DatabaseHelper(getActivity()), 3);
-		timelistener time2listener = new timelistener(time2,
+		Clocktimelistener time2listener = new Clocktimelistener(time2,
 				new DatabaseHelper(getActivity()), 2);
-		timelistener time1listener = new timelistener(time1,
+		Clocktimelistener time1listener = new Clocktimelistener(time1,
 				new DatabaseHelper(getActivity()), 1);
 		time3.setOnClickListener(time3listener);
 		time2.setOnClickListener(time2listener);

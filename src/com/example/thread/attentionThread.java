@@ -76,6 +76,7 @@ public class attentionThread extends Thread {
 			e.printStackTrace();
 
 		}
+		httpClient.getConnectionManager().shutdown();
 		Message msg = new Message();
 		msg.what = res;
 		UserActivity.mhandler.sendMessage(msg);

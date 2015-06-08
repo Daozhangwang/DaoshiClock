@@ -10,6 +10,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="girl">女</string>
     <string name="boy">男</string>
+    <string name="input_search">输入搜索内容</string>
+    <string name="search">搜索</string>
     <string name="title_clock">闹钟</string>
     <string name="musicbase">本地乐库</string>
     <string name="online">在线乐库</string>
@@ -18,8 +20,9 @@
     <string name="close">未开启</string>
     <string name="click_record">按住录音</string>
     <string name="begin_time">00:00</string>
+    <string name="begin_uploadtime">01:01:00:00</string>
     <string name="not_set">未设置</string>
-    
+    <string name="now_ring">当前铃声为：</string>
     <string name="playtest">试听</string>
     <string name="jishi">计时：</string>
     <string name="delete">删除</string>
@@ -41,6 +44,7 @@
     <string name="uploadlist">上传列表</string>
     <string name="attention">关注的人</string>
     <string name="zero">0</string>
+    <string name="upper">上传者</string>
     <string name="quit">取消登录</string>
     <string name="situation_already">已关注</string>
     <string name="situation_both">互相关注 </string>

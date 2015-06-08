@@ -75,8 +75,17 @@ public class myshared {
 
 	public String getintroduce() {
 
-		return pref.getString("introduce", "a big guy");
+		return pref.getString("introduce", null);
 
+	}
+
+	public void setusername(String username) {
+		editor.putString("username", username);
+		editor.commit();
+	}
+
+	public String getusername() {
+		return pref.getString("username", null);
 	}
 
 }

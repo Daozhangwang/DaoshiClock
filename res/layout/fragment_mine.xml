@@ -75,51 +75,51 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center_horizontal|bottom"
             android:text="@string/numberofupload"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center_horizontal|bottom"
             android:text="@string/follower"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center_horizontal|bottom"
             android:text="@string/attention"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="55dp"
+        android:layout_height="50dp"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/numberofupload"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center_horizontal|top"
             android:text="@string/zero"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/follower"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center_horizontal|top"
             android:text="@string/zero"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/attention"
@@ -128,7 +128,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal|top"
             android:text="@string/zero"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
     <include layout="@layout/greyline" />
@@ -139,6 +139,6 @@
         android:layout_height="75dp"
         android:gravity="center"
         android:text="@string/quit"
-        android:textSize="28sp" />
+        android:textSize="26sp" />
 
 </LinearLayout>

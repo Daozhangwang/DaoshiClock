@@ -34,7 +34,7 @@ public class baseplayer extends MediaPlayer {
 			player.release();
 			player.stop();
 			player = new MediaPlayer();
-			Log.i("player", "got one");
+
 		}
 
 	}
